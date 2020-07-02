@@ -1,0 +1,26 @@
+2020-07-02 19:10:12,977 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=13, y=12)
+2020-07-02 19:10:12,983 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-3, y=6)
+2020-07-02 21:29:37,292 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=13, y=12)
+2020-07-02 21:29:37,303 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-3, y=6)
+2020-07-02 21:29:37,304 +0300 [main] INFO  (Main.java:22) - 10.29563
+2020-07-02 21:34:42,479 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=13, y=12)
+2020-07-02 21:34:42,491 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-3, y=6)
+2020-07-02 21:34:42,492 +0300 [main] INFO  (Main.java:22) - 10.29563
+2020-07-02 21:35:12,466 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=13, y=12)
+2020-07-02 21:35:12,469 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-3, y=6)
+2020-07-02 21:35:12,470 +0300 [main] INFO  (Main.java:22) - 8.5440035
+2020-07-02 21:59:19,351 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=13, y=12)
+2020-07-02 21:59:19,358 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-3, y=6)
+2020-07-02 21:59:19,360 +0300 [main] INFO  (Main.java:22) - 0.7049272
+2020-07-02 22:01:01,194 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=13, y=12)
+2020-07-02 22:01:01,201 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-3, y=6)
+2020-07-02 22:01:01,202 +0300 [main] INFO  (Main.java:22) - 40.389355
+2020-07-02 22:01:44,712 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=8, y=9)
+2020-07-02 22:01:44,718 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=-8, y=9)
+2020-07-02 22:01:44,719 +0300 [main] INFO  (Main.java:22) - 90.0
+2020-07-02 22:03:24,124 +0300 [main] INFO  (Main.java:17) - Vector(ox=0, oy=0, x=2, y=5)
+2020-07-02 22:03:24,129 +0300 [main] INFO  (Main.java:20) - Vector(ox=0, oy=0, x=2, y=-1)
+2020-07-02 22:03:24,130 +0300 [main] INFO  (Main.java:22) - 44.999996
+2020-07-02 22:06:20,227 +0300 [main] INFO  (Main.java:17) - Suma Vector(ox=0, oy=0, x=2, y=5)
+2020-07-02 22:06:20,231 +0300 [main] INFO  (Main.java:20) - Diferenta Vector(ox=0, oy=0, x=2, y=-1)
+2020-07-02 22:06:20,232 +0300 [main] INFO  (Main.java:22) - 44.999996

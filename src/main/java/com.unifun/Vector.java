@@ -20,4 +20,10 @@ public class Vector {
         this.ox = ox;
         this.oy = oy;
     }
+    public Vector(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.ox = 0;
+        this.oy = 0;
+    }
 }
