@@ -5,13 +5,26 @@ package com.unifun;
 public class Operation {
 
     public Vector sumVector(Vector vector1, Vector vector2){
+        vector2 = getVector(vector1, vector2);
         return new Vector(vector1.getOx(), vector1.getOy(),
                 vector1.getX()+vector2.getX(), vector1.getY()+vector2.getY());
     }
 
     public Vector difVector(Vector vector1, Vector vector2){
-        return new Vector(vector1.getOx(), vector1.getOy(),
+        vector2 = getVector(vector1, vector2);
+        return new Vector(vector1.getOx()-vector2.getOx(), vector1.getOy()-vector2.getOy(),
                 vector1.getX()-vector2.getX(), vector1.getY()-vector2.getY());
+    }
+
+    private Vector getVector(Vector vector1, Vector vector2) {
+        if (vector1.getOx() != vector2.getOx() && vector1.getOy() != vector2.getOy()){
+            int x = vector1.getOx() - vector2.getOx();
+            int y = vector1.getOy() - vector2.getOy();
+            Vector translation = new Vector(x, y, x, y);
+            vector2 = translationVector(vector2,translation);
+            System.out.println(vector2.toString());
+        }
+        return vector2;
     }
 
     public float absVector(Vector vector){
@@ -29,7 +42,43 @@ public class Operation {
         return (float) Math.toDegrees(Math.acos(cos));
     }
 
+    public String returnCadran(Vector vector){
+        int [] cadran = new int[]{0,0,0,0};
+        int [] bit = new int[]{8,4,2,1};
+        int number = 0; String cadranul = "";
+        if (vector.getOx() < 0){
+            cadran[0] = 1;
+        }
+        if (vector.getOy() < 0){
+            cadran[1] = 1;
+        }
+        if (vector.getX() < 0){
+            cadran[2] = 1;
+        }
+        if (vector.getY() < 0){
+            cadran[3] = 1;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (cadran[i] == 1){
+                number += bit[i];
+            }
+        }
+        if (number == 0){
+            cadranul = "I";
+        }else if (number == 10){
+            cadranul = "II";
+        }else if (number == 15){
+            cadranul = "III";
+        }else if (number == 5){
+            cadranul = "IV";
+        }
+        return cadranul;
+    }
 
+    public Vector translationVector(Vector vector, Vector translation){
+        return new Vector(vector.getOx()+translation.getOx(), vector.getOy()+translation.getOy(),
+                vector.getX()+translation.getX(), vector.getY()+translation.getY());
+    }
 
 
 }
