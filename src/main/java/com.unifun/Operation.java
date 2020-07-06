@@ -1,7 +1,6 @@
 package com.unifun;
 
 
-
 public class Operation {
 
     public Vector sumVector(Vector vector1, Vector vector2){
@@ -28,21 +27,41 @@ public class Operation {
     }
 
     public float absVector(Vector vector){
-        return (float) Math.sqrt(Math.pow(vector.getX(),2) + Math.pow(vector.getY(),2)
-                + Math.pow(vector.getOx(),2) + Math.pow(vector.getOy(),2));
+        return (float) Math.sqrt(Math.pow(vector.getX() - vector.getOx(),2) +
+                Math.pow(vector.getY() - vector.getOy() ,2));
     }
 
     public int multiplieVector(Vector vector1, Vector vector2){
-        return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY();
+        return (vector1.getX() - vector1.getOx()) * (vector2.getX() - vector2.getOx()) +
+                (vector1.getY() - vector1.getOy()) * (vector2.getY() - vector2.getOy());
     }
 
-    public float angleOfVectors(Vector vector1, Vector vector2){
+    public float angleOfTwoVectors(Vector vector1, Vector vector2){
         int product = multiplieVector(vector1, vector2);
         float cos = (float)product / (absVector(vector1) * absVector(vector2));
         return (float) Math.toDegrees(Math.acos(cos));
     }
 
-    public String returnCadran(Vector vector){
+    public float angleOfVector(Vector vector){
+        Vector translation = new Vector(vector.getOx(), vector.getOy(), vector.getX(),vector.getOy() );
+        float angle = angleOfTwoVectors(vector, translation);
+        int cadran = getCadran(vector);
+        System.out.println("Cadran  "+ cadran);
+
+        if (cadran == 10 || cadran == 2){
+            angle = 180f - angle;
+        }else
+            if (cadran == 15 || cadran == 3){
+            angle += 180f;
+        }else
+            if (cadran == 1 || cadran == 5){
+            angle = 360f - angle;
+        }
+
+        return angle;
+    }
+
+    public int getCadran(Vector vector){
         int [] cadran = new int[]{0,0,0,0};
         int [] bit = new int[]{8,4,2,1};
         int number = 0; String cadranul = "";
@@ -58,21 +77,14 @@ public class Operation {
         if (vector.getY() < 0){
             cadran[3] = 1;
         }
+
         for (int i = 0; i < 4; i++) {
             if (cadran[i] == 1){
                 number += bit[i];
             }
         }
-        if (number == 0){
-            cadranul = "I";
-        }else if (number == 10){
-            cadranul = "II";
-        }else if (number == 15){
-            cadranul = "III";
-        }else if (number == 5){
-            cadranul = "IV";
-        }
-        return cadranul;
+
+        return number;
     }
 
     public Vector translationVector(Vector vector, Vector translation){

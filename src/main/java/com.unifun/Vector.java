@@ -1,12 +1,5 @@
 package com.unifun;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Getter
-@ToString
-@NoArgsConstructor
 public class Vector {
     private int ox;
     private int oy;
@@ -14,7 +7,7 @@ public class Vector {
     private int y;
 
 
-    public Vector( int ox, int oy, int x, int y) {
+    public Vector(int ox, int oy, int x, int y) {
         this.x = x;
         this.y = y;
         this.ox = ox;
@@ -26,4 +19,31 @@ public class Vector {
         this.ox = 0;
         this.oy = 0;
     }
+
+    public int getOx() {
+        return ox;
+    }
+
+    public int getOy() {
+        return oy;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "ox=" + ox +
+                ", oy=" + oy +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
+    }
+
 }

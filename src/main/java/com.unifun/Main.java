@@ -9,15 +9,15 @@ public class Main {
     public static void main(String[] args) {
         PropertyConfigurator.configure("log4j.properties");
 
-        Vector vector1 = new Vector(-3,-1,-9,-3);
-        Vector vector2 = new Vector(-2,10,-7,4);
-        Vector translation = new Vector(0, -2);
+        Vector vector1 = new Vector(1,1,3,3);
+        Vector vector2 = new Vector(1,1,4,1);
         Operation operation =new Operation();
 
-        Vector suma = operation.sumVector(vector1,vector2);
-        LOGGER.info("Suma " + suma.toString());
+        /*Vector sum = operation.sumVector(vector1, vector2);
+        LOGGER.info(sum.toString());*/
+        LOGGER.info("Unghiul " + operation.angleOfVector(vector1));
 
+        //new Json(vector2);
 
-        LOGGER.info(operation.returnCadran(vector1));
     }
 }
