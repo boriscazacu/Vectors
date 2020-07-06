@@ -3,3 +3,5 @@ debug.log
 logs/
 target/
 Vectors.iml
+newfile.json
+.gitignore
