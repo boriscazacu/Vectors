@@ -20,6 +20,8 @@ public class Vector {
         this.oy = 0;
     }
 
+    public Vector(){}
+
     public int getOx() {
         return ox;
     }
