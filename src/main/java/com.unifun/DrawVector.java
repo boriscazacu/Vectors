@@ -44,14 +44,14 @@ public class DrawVector extends JFrame{
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         Line2D ox = new Line2D.Float(0,halfHeight,width,halfHeight);
-        Line2D oy = new Line2D.Float(halfWidth, 50, halfHeight, height);
+        Line2D oy = new Line2D.Float(halfWidth, 70, halfHeight, height);
 
-        Line2D lin = new Line2D.Float(vector1.getOx()+halfWidth, vector1.getOy()+halfHeight,
-                vector1.getX()+halfWidth, vector1.getY()+halfHeight);
-        Line2D lin2 = new Line2D.Float( vector2.getOx()+halfWidth, vector2.getOy()+halfHeight,
-                vector2.getX()+halfWidth, vector2.getY()+halfHeight);
-        Line2D lin3 = new Line2D.Float(outVector.getOx()+halfWidth, outVector.getOy()+halfHeight,
-                outVector.getX()+halfWidth, outVector.getY()+halfHeight);
+        Line2D lin = new Line2D.Float(vector1.getOx()+halfWidth, Math.abs(halfHeight-vector1.getOy()),
+                vector1.getX()+halfWidth, Math.abs(halfHeight-vector1.getY()));
+        Line2D lin2 = new Line2D.Float( vector2.getOx()+halfWidth, Math.abs(halfHeight-vector2.getOy()),
+                vector2.getX()+halfWidth, Math.abs(halfHeight-vector2.getY()));
+        Line2D lin3 = new Line2D.Float(outVector.getOx()+halfWidth, halfHeight-outVector.getOy(),
+                outVector.getX()+halfWidth, halfHeight-outVector.getY());
 
         g2.draw(ox);
         g2.draw(oy);

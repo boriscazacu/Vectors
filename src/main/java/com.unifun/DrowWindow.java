@@ -110,7 +110,7 @@ public class DrowWindow implements ActionListener {
             if (s.equals("AngleF")) {
                 //custom title, no icon
                 JOptionPane.showMessageDialog(frame,
-                        String.valueOf(operation.angleOfVector(vector1)),
+                        "Angle of first Vector is "+operation.angleOfVector(vector1),
                         "Angle of first Vector",
                         JOptionPane.PLAIN_MESSAGE);
 
@@ -123,14 +123,12 @@ public class DrowWindow implements ActionListener {
                 } else
                     if (s.equals("-")){
                         Vector diff = operation.difVector(vector1,vector2);
-                        JOptionPane.showMessageDialog(frame,
-                                String.valueOf(diff),
-                                "Sum of Vectors",
-                                JOptionPane.PLAIN_MESSAGE);
+                        DrawVector window = new DrawVector(vector1,vector2,diff);
+                        window.setVisible(true);
                     }else
                         if (s.equals("AngleL")){
                             JOptionPane.showMessageDialog(frame,
-                                    String.valueOf(operation.angleOfVector(vector2)),
+                                    "Angle of second Vector is "+operation.angleOfVector(vector2),
                                     "Angle of second Vector",
                                     JOptionPane.PLAIN_MESSAGE);
                         }
