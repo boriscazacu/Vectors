@@ -26,7 +26,7 @@ public class DrawVector extends JFrame{
         frame = new JFrame("Rezultate");
 
         drowMessage.setBounds(130, 10, 200, 50);
-        drowMessage.setText(String.valueOf(outVector));
+        drowMessage.setText("Out"+outVector);
         JPanel panel=new JPanel();
         panel.add(drowMessage);
         getContentPane().add(panel);
@@ -38,8 +38,9 @@ public class DrawVector extends JFrame{
     public void paint(Graphics g) {
         super.paint(g);  // fixes the immediate problem.
         Graphics2D g2 = (Graphics2D) g;
-       int halfWidth = width/2;
-       int halfHeight = height/2;
+        int halfWidth = width/2;
+        int halfHeight = height/2;
+        int scalar = 10;
 
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -50,14 +51,15 @@ public class DrawVector extends JFrame{
                 vector1.getX()+halfWidth, Math.abs(halfHeight-vector1.getY()));
         Line2D lin2 = new Line2D.Float( vector2.getOx()+halfWidth, Math.abs(halfHeight-vector2.getOy()),
                 vector2.getX()+halfWidth, Math.abs(halfHeight-vector2.getY()));
-        Line2D lin3 = new Line2D.Float(outVector.getOx()+halfWidth, halfHeight-outVector.getOy(),
-                outVector.getX()+halfWidth, halfHeight-outVector.getY());
+        Line2D lin3 = new Line2D.Float(outVector.getOx()+halfWidth, Math.abs(halfHeight-outVector.getOy()),
+                outVector.getX()+halfWidth, Math.abs(halfHeight-outVector.getY()));
 
         g2.draw(ox);
         g2.draw(oy);
         g2.setPaint(Color.RED);
         g2.draw(lin);
         g2.draw(lin2);
+        g2.setPaint(Color.GREEN);
         g2.draw(lin3);
     }
 }

@@ -11,7 +11,7 @@ public class Operation {
 
     public Vector difVector(Vector vector1, Vector vector2){
         vector2 = getVector(vector1, vector2);
-        return new Vector(vector1.getOx()-vector2.getOx(), vector1.getOy()-vector2.getOy(),
+        return new Vector(vector1.getOx(), vector1.getOy(),
                 vector1.getX()-vector2.getX(), vector1.getY()-vector2.getY());
     }
 
