@@ -6,7 +6,7 @@ import java.awt.geom.Line2D;
 import javax.swing.*;
 
 
-public class DrowWindow extends JFrame implements ActionListener {
+public class DrowWindow implements ActionListener {
     // JTextField
     static JTextField firstVector;
     static JTextField secondVector;
@@ -19,48 +19,7 @@ public class DrowWindow extends JFrame implements ActionListener {
     static JLabel originea;
     static JLabel virtful;
     static JLabel message;
-    static JLabel drowMessage;
 
-    private Vector vector1 = new Vector();
-    private Vector vector2 = new Vector();
-    private Vector outVector = new Vector();
-
-    // default constructor
-    DrowWindow(){}
-
-    public DrowWindow(Vector vector1, Vector vector2, Vector outVector){
-        this.vector1 = vector1;
-        this.vector2 = vector2;
-        this.outVector = outVector;
-        drowMessage = new JLabel("");
-        frame = new JFrame("Rezultate");
-
-        drowMessage.setBounds(130, 10, 200, 50);
-        drowMessage.setText(String.valueOf(outVector));
-        JPanel panel=new JPanel();
-        panel.add(drowMessage);
-        getContentPane().add(panel);
-        setSize(350,350);
-
-
-    }
-
-    public void paint(Graphics g) {
-        super.paint(g);  // fixes the immediate problem.
-        Graphics2D g2 = (Graphics2D) g;
-        System.out.println(vector1.toString());
-        System.out.println(vector1.getX());
-
-        Line2D lin = new Line2D.Float(100, 100, 250, 260);
-        Line2D lin2 = new Line2D.Float((float) vector2.getOx(), (float)vector2.getOy(),
-                (float)vector2.getX(), (float)vector2.getY());
-        Line2D lin3 = new Line2D.Float(outVector.getOx()*1.0f, outVector.getOy()*1.0f,
-                outVector.getX()*1.0f, outVector.getY()*1.0f);
-
-        g2.draw(lin);
-        g2.draw(lin2);
-        g2.draw(lin3);
-    }
 
     // main class
     public static void main(String[] args)
@@ -131,7 +90,7 @@ public class DrowWindow extends JFrame implements ActionListener {
         if (!firstVector.getText().isEmpty() && !secondVector.getText().isEmpty()){
             String s = e.getActionCommand();
             String[] first = firstVector.getText().split(",");
-            String[] second = firstVector.getText().split(",");
+            String[] second = secondVector.getText().split(",");
 
 
             Vector vector1 = new Vector(
@@ -159,7 +118,7 @@ public class DrowWindow extends JFrame implements ActionListener {
             }else
                 if (s.equals("+")){
                     Vector sum = operation.sumVector(vector1,vector2);
-                    DrowWindow window = new DrowWindow(vector1,vector2,sum);
+                    DrawVector window = new DrawVector(vector1,vector2,sum);
                     window.setVisible(true);
                 } else
                     if (s.equals("-")){
