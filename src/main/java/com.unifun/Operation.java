@@ -21,7 +21,6 @@ public class Operation {
             int y = vector1.getOy() - vector2.getOy();
             Vector translation = new Vector(x, y, x, y);
             vector2 = translationVector(vector2,translation);
-            System.out.println(vector2.toString());
         }
         return vector2;
     }
@@ -46,7 +45,6 @@ public class Operation {
         Vector translation = new Vector(vector.getOx(), vector.getOy(), vector.getX(),vector.getOy() );
         float angle = angleOfTwoVectors(vector, translation);
         int cadran = getCadran(vector);
-        System.out.println("Cadran  "+ cadran);
 
         if (cadran == 10 || cadran == 2){
             angle = 180f - angle;
@@ -90,6 +88,11 @@ public class Operation {
     public Vector translationVector(Vector vector, Vector translation){
         return new Vector(vector.getOx()+translation.getOx(), vector.getOy()+translation.getOy(),
                 vector.getX()+translation.getX(), vector.getY()+translation.getY());
+    }
+
+    public Vector scalingVector(Vector vector, int scaler){
+        return new Vector(vector.getOx() * scaler, vector.getOy() * scaler,
+                vector.getX() * scaler, vector.getY() * scaler);
     }
 
 

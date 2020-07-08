@@ -5,7 +5,6 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.Line2D;
 import javax.swing.*;
 
 
@@ -36,7 +35,7 @@ public class DrowWindow {
         originea = new JLabel("First Vector (x,y,..)");
         virtful = new JLabel("Second Vector (x,y,..)");
         button = new JButton("AngleF");
-        angle = new JButton("AngleL");
+        angle = new JButton("AngleS");
         buttonAdd = new JButton("+");
         buttonDiff = new JButton("-");
         DrowWindow drowWindow = new DrowWindow();
@@ -64,9 +63,9 @@ public class DrowWindow {
                         "Angle of first Vector is "+operation.angleOfVector(firstVector),
                         "Angle of first Vector",
                         JOptionPane.PLAIN_MESSAGE);
-                System.out.println(operation.angleOfVector(firstVector));
+                message.setText("");
             }catch (Exception exception){
-                LOGGER.info("Vectorul este null");
+                LOGGER.info("Vectorul este null --- "+exception.getMessage());
             }
         });
 
@@ -79,7 +78,7 @@ public class DrowWindow {
                 window.setVisible(true);
                 message.setText("");
             }catch (Exception exception){
-                LOGGER.info("Vectorul este null");
+                LOGGER.info("Vectorul este null --- "+exception.getMessage());
             }
         });
 
@@ -92,7 +91,7 @@ public class DrowWindow {
                 window.setVisible(true);
                 message.setText("");
             }catch (Exception exception){
-                LOGGER.info("Vectorul este null");
+                LOGGER.info("Vectorul este null --- "+exception.getMessage());
             }
         });
 
@@ -103,9 +102,9 @@ public class DrowWindow {
                         "Angle of second Vector is "+operation.angleOfVector(vectorSecond),
                         "Angle of second Vector",
                         JOptionPane.PLAIN_MESSAGE);
-                System.out.println(operation.angleOfVector(vectorSecond));
+                message.setText("");
             }catch (Exception exception){
-                LOGGER.info("Vectorul este null");
+                LOGGER.info("Vectorul este null --- "+exception.getMessage());
             }
         });
 
@@ -138,13 +137,14 @@ public class DrowWindow {
         panel.add(originea);
         panel.add(virtful);
         panel.add(message);
-        frame.setSize(490, 370);
+        frame.setSize(460, 370);
         frame.setVisible(true);
     }
 
-
+//  -------------------- Create vectors from input ------------------------
     public Vector getSecondVector(){
         Vector vector = null;
+        Operation operation = new Operation();
         if ( !secondVector.getText().isEmpty()) {
             String[] second = secondVector.getText().split(",");
             vector = new Vector(
@@ -156,11 +156,12 @@ public class DrowWindow {
         }else {
             message.setText("Enter the coordinates of the second Vector");
         }
-
+        vector = operation.scalingVector(vector, 20);
         return vector;
     }
     public Vector getFirstVector(){
         Vector vector = null;
+        Operation operation = new Operation();
         if ( !firstVector.getText().isEmpty()) {
             String[] second = firstVector.getText().split(",");
             vector = new Vector(
@@ -172,6 +173,7 @@ public class DrowWindow {
         }else {
             message.setText("Enter the coordinates of the first Vector");
         }
+        vector = operation.scalingVector(vector, 20);
 
         return vector;
     }
