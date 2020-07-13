@@ -8,8 +8,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-public class DrowWindow {
-    private static final Logger LOGGER = Logger.getLogger(DrowWindow.class);
+public class DrawWindow {
+    private static final Logger LOGGER = Logger.getLogger(DrawWindow.class);
     // JTextField
     static JTextField firstVector;
     static JTextField secondVector;
@@ -38,7 +38,7 @@ public class DrowWindow {
         angle = new JButton("AngleS");
         buttonAdd = new JButton("+");
         buttonDiff = new JButton("-");
-        DrowWindow drowWindow = new DrowWindow();
+        DrawWindow drawWindow = new DrawWindow();
         Font fo = new Font("Serif", Font.BOLD, 15);
 
         Dimension size = label.getPreferredSize();
@@ -58,7 +58,7 @@ public class DrowWindow {
 
         button.addActionListener((ActionEvent e) -> {
             try {
-                Vector firstVector = drowWindow.getFirstVector();
+                Vector firstVector = drawWindow.getFirstVector();
                 JOptionPane.showMessageDialog(frame,
                         "Angle of first Vector is "+operation.angleOfVector(firstVector),
                         "Angle of first Vector",
@@ -71,8 +71,8 @@ public class DrowWindow {
 
         buttonAdd.addActionListener((ActionEvent e) -> {
             try {
-                Vector vectorFirst = drowWindow.getFirstVector();
-                Vector vectorSecond = drowWindow.getSecondVector();
+                Vector vectorFirst = drawWindow.getFirstVector();
+                Vector vectorSecond = drawWindow.getSecondVector();
                 Vector sum = operation.sumVector(vectorFirst,vectorSecond);
                 DrawVector window = new DrawVector(vectorFirst,vectorSecond,sum);
                 window.setVisible(true);
@@ -84,8 +84,8 @@ public class DrowWindow {
 
         buttonDiff.addActionListener((ActionEvent e) -> {
             try {
-                Vector vectorFirst = drowWindow.getFirstVector();
-                Vector vectorSecond = drowWindow.getSecondVector();
+                Vector vectorFirst = drawWindow.getFirstVector();
+                Vector vectorSecond = drawWindow.getSecondVector();
                 Vector diff = operation.difVector(vectorFirst,vectorSecond);
                 DrawVector window = new DrawVector(vectorFirst,vectorSecond,diff);
                 window.setVisible(true);
@@ -97,7 +97,7 @@ public class DrowWindow {
 
         angle.addActionListener((ActionEvent e) -> {
             try {
-                Vector vectorSecond = drowWindow.getSecondVector();
+                Vector vectorSecond = drawWindow.getSecondVector();
                 JOptionPane.showMessageDialog(frame,
                         "Angle of second Vector is "+operation.angleOfVector(vectorSecond),
                         "Angle of second Vector",

@@ -30,14 +30,15 @@ public class Operation {
                 Math.pow(vector.getY() - vector.getOy() ,2));
     }
 
-    public int multiplieVector(Vector vector1, Vector vector2){
+    public float multiplieVector(Vector vector1, Vector vector2){
         return (vector1.getX() - vector1.getOx()) * (vector2.getX() - vector2.getOx()) +
-                (vector1.getY() - vector1.getOy()) * (vector2.getY() - vector2.getOy());
+                (vector1.getY() - vector1.getOy()) * (vector2.getOy() - vector2.getY());
     }
 
     public float angleOfTwoVectors(Vector vector1, Vector vector2){
-        int product = multiplieVector(vector1, vector2);
-        float cos = (float)product / (absVector(vector1) * absVector(vector2));
+        float product = multiplieVector(vector1, vector2);
+        System.out.println("produsul "+product);
+        float cos = product / (absVector(vector1) * absVector(vector2));
         return (float) Math.toDegrees(Math.acos(cos));
     }
 
